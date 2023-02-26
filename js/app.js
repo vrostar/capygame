@@ -3,6 +3,7 @@ const video = document.getElementById("webcam");
 const label = document.getElementById("label");
 const classifyBtn = document.querySelector("#Classify");
 const infoBtn = document.querySelector("#Info");
+let points = 0
 
 // Speech synthesis to give instructions
 let synth = window.speechSynthesis
@@ -58,6 +59,8 @@ function classify() {
         label.innerText = result[0].label;
         if (result[0].label == "capy") {
             speak("omg thats a spicy capy yippee!!!")
+            points += 1;
+            document.getElementById("points").innerHTML = `THE CAPYBARA SCORE:${points}`;
         } else {
             speak("thats a ugly bara, not good ew")
         }
